@@ -16,6 +16,7 @@ import { CONNECT_DB, CLOSE_DB } from "~/configs/connect.database";
 import configCORS from "~/configs/config.cors";
 import errorHandlingMiddleware from "~/middlewares/error.hanlder.middleware";
 import APIs_V1 from "~/routes/v1";
+import validateEnv from "~/providers/env/validate.env";
 
 // chạy server
 const START_SERVER = () => {
@@ -37,6 +38,9 @@ const START_SERVER = () => {
 
   // routes
   APIs_V1(app);
+
+  // validate env
+  validateEnv();
 
   // port
   const port = env.PORT;
