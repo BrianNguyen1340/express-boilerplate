@@ -1,0 +1,52 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "Cinema Backend",
+  "main": "./src/server.js",
+  "engines": {
+    "node": "20.12.2"
+  },
+  "scripts": {
+    "lint": "eslint src --ext js --report-unused-disable-directives --max-warnings 0",
+    "clean": "rm -rf build && mkdir build",
+    "build-babel": "babel ./src -d ./build/src",
+    "build": "npm run clean && npm run build-babel",
+    "production": "npm run build && cross-env NODE_ENV=production node ./build/src/server.js",
+    "dev": "cross-env NODE_ENV=development nodemon --exec babel-node ./src/server.js"
+  },
+  "keywords": [],
+  "author": "Brian Nguyen",
+  "license": "ISC",
+  "dependencies": {
+    "async-exit-hook": "^2.0.1",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.2",
+    "cloudinary": "^1.41.3",
+    "cookie-parser": "^1.4.6",
+    "cross-env": "^7.0.3",
+    "dotenv": "^16.4.5",
+    "envalid": "^8.0.0",
+    "express": "^4.19.2",
+    "helmet": "^7.1.0",
+    "http-status-codes": "^2.3.0",
+    "joi": "^17.12.3",
+    "jsonwebtoken": "^9.0.2",
+    "mongodb": "^6.5.0",
+    "mongoose": "^8.3.2",
+    "multer": "^1.4.5-lts.1",
+    "multer-storage-cloudinary": "^4.0.0",
+    "nodemailer": "^6.9.13"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.24.1",
+    "@babel/core": "^7.24.4",
+    "@babel/eslint-parser": "^7.24.1",
+    "@babel/node": "^7.23.9",
+    "@babel/plugin-transform-runtime": "^7.24.3",
+    "@babel/preset-env": "^7.24.4",
+    "babel-plugin-module-resolver": "^5.0.2",
+    "eslint": "^9.1.0",
+    "morgan": "^1.10.0",
+    "nodemon": "^3.1.0"
+  }
+}
